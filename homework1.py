@@ -39,13 +39,17 @@ A = np.array([[1, 2], [3, -1]])
 B = np.array([[-2, -2], [4, -3]])
 
 # 6a
-print(f"The solution to 6a is {A+2*B}")
+print(f"The solution to 6a is \n{A+2*B}")
 # 6b
-print(f"The solution to 6a is AB: {A@B} BA: {B@A}")
+print(f"The solution to 6a is AB: \n{A@B} \nBA: \n{B@A}")
 # 6c
-print(f"The transpose of A is {np.transpose(A)}")
+print(f"The transpose of A is \n{np.transpose(A)}")
 # 6d
-print(f"B*B is {B@B}")
+print(f"B*B is \n{B@B}")
 # 6e
-print(f"A^T*B*T is {np.transpose(A)@np.transpose(B)}")
-print(f"(AB)^T is")
+print(f"A^T*B*T is \n{np.transpose(A)@np.transpose(B)}")
+print(f"(AB)^T is \n{np.transpose(A@B)}")
+# 6f
+print(f"Determinant of A is: \n {np.linalg.det(A)}")
+# 6g:
+print(f"Inverse of B is: \n {np.linalg.inv(B)}")
