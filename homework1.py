@@ -48,3 +48,4 @@ print(f"The transpose of A is {np.transpose(A)}")
 print(f"B*B is {B@B}")
 # 6e
 print(f"A^T*B*T is {np.transpose(A)@np.transpose(B)}")
+print(f"(AB)^T is")
