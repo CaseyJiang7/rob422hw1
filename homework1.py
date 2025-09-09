@@ -39,17 +39,17 @@ A = np.array([[1, 2], [3, -1]])
 B = np.array([[-2, -2], [4, -3]])
 
 # 6a
-print(f"The solution to 6a is \n{A+2*B}")
+print(f"The solution to 6a is \n{A+2*B}\n")
 # 6b
-print(f"The solution to 6a is AB: \n{A@B} \nBA: \n{B@A}")
+print(f"The solution to 6a is AB: \n{A@B} \nBA: \n{B@A}\n")
 # 6c
-print(f"The transpose of A is \n{np.transpose(A)}")
+print(f"The transpose of A is \n{np.transpose(A)}\n")
 # 6d
-print(f"B*B is \n{B@B}")
+print(f"B*B is \n{B@B}\n")
 # 6e
-print(f"A^T*B*T is \n{np.transpose(A)@np.transpose(B)}")
-print(f"(AB)^T is \n{np.transpose(A@B)}")
+print(f"A^T*B*T is \n{np.transpose(A)@np.transpose(B)}\n")
+print(f"(AB)^T is \n{np.transpose(A@B)}\n")
 # 6f
-print(f"Determinant of A is: \n {np.linalg.det(A)}")
+print(f"Determinant of A is: \n {np.linalg.det(A)}\n")
 # 6g:
-print(f"Inverse of B is: \n {np.linalg.inv(B)}")
+print(f"Inverse of B is: \n {np.linalg.inv(B)}\n")
