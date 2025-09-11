@@ -77,3 +77,5 @@ rot2 = yRot(theta2)
 rot3 = zRot(theta3)
 print(f"Rotation matrix for 7 is: \n {rot3@rot2@rot1}\n")
 
+
+
