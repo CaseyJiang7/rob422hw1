@@ -1,5 +1,7 @@
 import numpy as np
 
+np.set_printoptions(suppress=True) # to get rid of scientific notation
+
 # Question 5
 
 def solve(a, b, problem):
@@ -53,3 +55,25 @@ print(f"(AB)^T is \n{np.transpose(A@B)}\n")
 print(f"Determinant of A is: \n {np.linalg.det(A)}\n")
 # 6g:
 print(f"Inverse of B is: \n {np.linalg.inv(B)}\n")
+
+# 7
+
+theta1 = np.pi/2
+theta2 = -np.pi/5
+theta3 = np.pi
+
+def zRot(theta):
+    return(np.array([[np.cos(theta), -np.sin(theta), 0],
+                    [np.sin(theta), np.cos(theta), 0],
+                    [0, 0, 1]]))
+
+def yRot(theta):
+    return(np.array([[np.cos(theta), 0, np.sin(theta)],
+                    [0, 1, 0],
+                    [-np.sin(theta), 0, np.cos(theta)]]))
+
+rot1 = zRot(theta1)
+rot2 = yRot(theta2)
+rot3 = zRot(theta3)
+print(f"Rotation matrix for 7 is: \n {rot3@rot2@rot1}\n")
+
