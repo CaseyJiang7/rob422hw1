@@ -11,13 +11,14 @@ def solve(a, b, problem):
         print(f"The solution to {problem} is {ans}")
     except Exception as e:
         # infinite or no solution case
-
-        # rank A < num columns means infinite solutions
+        
+        # no solutions if rank(A) < rank augmented (A|b)
         rankA = np.linalg.matrix_rank(a)
-        if rankA < a.shape[1]:
-            print(f"The solution to {problem} is infinite solutions")
-        else:
+        rankAug = np.linalg.matrix_rank(np.c_[a,b])
+        if(rankA < rankAug):
             print(f"The solution to {problem} is no solutions")
+        else:
+            print(f"The solution to {problem} is infinite solutions")
 
 
 
@@ -49,7 +50,7 @@ print(f"The transpose of A is \n{np.transpose(A)}\n")
 # 6d
 print(f"B*B is \n{B@B}\n")
 # 6e
-print(f"A^T*B*T is \n{np.transpose(A)@np.transpose(B)}\n")
+print(f"A^T*B^T is \n{np.transpose(A)@np.transpose(B)}\n")
 print(f"(AB)^T is \n{np.transpose(A@B)}\n")
 # 6f
 print(f"Determinant of A is: \n {np.linalg.det(A)}\n")
@@ -77,5 +78,36 @@ rot2 = yRot(theta2)
 rot3 = zRot(theta3)
 print(f"Rotation matrix for 7 is: \n {rot3@rot2@rot1}\n")
 
+# 8
+x = np.array([-0.86824314, -0.49613894, 0])
+z = np.array([0,0,1])
+print(f"For 8, x-axis cross z-axis is: {np.cross(x,z)}\n")
 
+def checkValidRot(mat):
+    # matrix must be square
+    if (mat.shape[0] != mat.shape[1]):
+        print(f"provided mat dimensions are {mat.shape[0]} {mat.shape[1]}")
+        return False
+    
 
+    # determinant should equal 1
+    det = np.linalg.det(mat)
+    if not np.allclose(det,1, atol=1e-3): 
+        print(f"determinant is {det}")
+        return False
+    # transpose times original should be identity for orthogonality
+    matT = np.transpose(mat)
+    return np.allclose(matT @ mat, np.eye(3), atol = 1e-3) 
+
+# check computed matrix is valid rotational matrix
+print(f"Rotational mat component of 8b is valid: {checkValidRot(np.array([
+    [-0.8682, 0.4961, 0],[-0.4961, -0.8682, 0], [0, 0, 1]
+]))}")
+
+# check provided rotational matrix is valid
+
+sqrt2 = np.sqrt(2)
+
+providedMat = np.array([[sqrt2/2, sqrt2/2, 0], [-sqrt2/2, sqrt2/2, 0], [0, 0, 1]])
+
+print(f"Rotational mat component of 8c is valid: {checkValidRot(providedMat)}")
